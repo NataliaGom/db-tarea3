@@ -20,8 +20,14 @@ def is_superkey(attributes: set[Attribute], heading: set[Attribute], functional_
 
 
 def is_key(attributes: set[Attribute], heading: set[Attribute], functional_dependencies: set[FunctionalDependency]) -> bool:
-    # TODO: Actividad 5
-    raise NotImplementedError()
+    """Determina si el conjunto de atributos es llave mínima (superllave irreductible)."""
+    if not is_superkey(attributes, heading, functional_dependencies):
+        return False
+    for attr in attributes:
+        reduced = attributes - {attr}
+        if is_superkey(reduced, heading, functional_dependencies):
+            return False
+    return True
 
 
 def is_relvar_in_bcnf(relvar: Relvar):
