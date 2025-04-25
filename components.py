@@ -78,8 +78,8 @@ class FunctionalDependency(Dependency):
     _SEPARATOR = "->"
 
     def is_trivial(self) -> bool:
-        # TODO: Actividad 1
-        raise NotImplementedError()
+        """Regresa True si la dependencia funcional es trivial, es decir, si el lado derecho esta contenido en el izquierdor."""
+        return self.dependant.issubset(self.determinant)
 
 
 class MultivaluedDependency(Dependency):
