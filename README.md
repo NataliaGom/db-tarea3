@@ -16,7 +16,7 @@ pero debe funcionar con 3.8 o superior.
 - Para evaluar si una relvar está en BCNF, se verifica que todas las dependencias funcionales no triviales tengan un determinante que sea superllave.
 - Para evaluar si una relvar está en 4NF, se aplica el mismo criterio pero sobre las dependencias multivaluadas.
 
-+ Las pruebas las hicimos en Visual Studio Code
++ Las pruebas las hicimos en Visual Studio Code y las escribimos en example.py
 
 ## Explicación de métodos
 1)
