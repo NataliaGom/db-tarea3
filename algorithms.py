@@ -15,8 +15,8 @@ def closure(attributes: set[Attribute], functional_dependencies: set[FunctionalD
 
 
 def is_superkey(attributes: set[Attribute], heading: set[Attribute], functional_dependencies: set[FunctionalDependency]) -> bool:
-    # TODO: Actividad 4
-    raise NotImplementedError()
+    """Determina si el conjunto de atributos es superllave (determina todo el encabezado)."""
+    return closure(attributes, functional_dependencies) == heading
 
 
 def is_key(attributes: set[Attribute], heading: set[Attribute], functional_dependencies: set[FunctionalDependency]) -> bool:
