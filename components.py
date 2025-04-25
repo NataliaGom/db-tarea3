@@ -88,8 +88,8 @@ class MultivaluedDependency(Dependency):
     _SEPARATOR = "->->"
 
     def is_trivial(self, heading: set[Attribute]) -> bool:
-        # TODO: Actividad 2
-        raise NotImplementedError()
+        """Regresa True si la dependencia multivariada es trivial (Y ⊆ X o X ∪ Y = heading)."""
+        return self.dependant.issubset(self.determinant) or self.determinant.union(self.dependant) == heading
 
 
 class Relvar:
