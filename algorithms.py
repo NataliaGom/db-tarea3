@@ -2,8 +2,16 @@ from .components import FunctionalDependency, Attribute, Relvar
 
 
 def closure(attributes: set[Attribute], functional_dependencies: set[FunctionalDependency]) -> set[Attribute]:
-    # TODO: Actividad 3
-    raise NotImplementedError()
+    """Calcula el cierre de un conjunto de atributos dado un conjunto de dependencias funcionales."""
+    closure_set = set(attributes)
+    changed = True
+    while changed:
+        changed = False
+        for fd in functional_dependencies:
+            if fd.determinant.issubset(closure_set) and not fd.dependant.issubset(closure_set):
+                closure_set.update(fd.dependant)
+                changed = True
+    return closure_set
 
 
 def is_superkey(attributes: set[Attribute], heading: set[Attribute], functional_dependencies: set[FunctionalDependency]) -> bool:
